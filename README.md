@@ -9,8 +9,8 @@ The execution of these functions are based on a 3 bits OpSel input and the data 
 ##2)ALU Test and Debugging
 One issue that i faced was on the ROR command function, it was not functioning, till I decided to just write out the step by step , bit by bit execution method of the ROR command function. I decided to design the ALU using the conditional statements, as I had previously used it before in Lab3 and find it more comfortable to work around with.
 
-As attached below is the waveform generated after simulating the ALU_shell.vhd in the ALU_testbench.vhd file
+As attached in this git repository is the waveform generated after simulating the ALU_shell.vhd in the ALU_testbench.vhd file, it will be labelled as ALU_testbench_Waveform.jpeg.
 
-Image:
+Cross-checking with the waveform and the Conditional Statements coding within the ALU_shell.vhd, the values  with the waveform picture protrayed the correct desired result value of the respective assigned functions.
 
-![ALU_testbench_Waveform](ALU_testbench_Waveform.jpg)
+
