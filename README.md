@@ -12,4 +12,4 @@ One issue that i faced was on the ROR command function, it was not functioning, 
 As attached below is the waveform generated after simulating the ALU_shell.vhd in the ALU_testbench.vhd file
 
 Image:
-![ALU_Testbench Waveform](ALU _testbench_Waveform.jpg)
+![ALU_Testbench Waveform](ALU_testbench_Waveform.jpg)
