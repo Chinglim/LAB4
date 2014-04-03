@@ -7,4 +7,4 @@ The ALU is required to perform 8 different functions: AND,NEG,NOT,ROR,OR,IN,ADD,
 The execution of these functions are based on a 3 bits OpSel input and the data path. The necessary design output will then be generated, through the given input and selected functions.
 
 ##2)ALU Test and Debugging
-One issue that i faced was on the ROR command function, it was not functioning, till I decided to just write out the step by step , bit by bit execution method of the ROR command function. I decided to design the ALU using the conditional statements, as I had previously used it before in Lab3 and find it more comfortable to work around with
+One issue that i faced was on the ROR command function, it was not functioning, till I decided to just write out the step by step , bit by bit execution method of the ROR command function. I decided to design the ALU using the conditional statements, as I had previously used it before in Lab3 and find it more comfortable to work around with.
