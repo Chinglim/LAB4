@@ -11,6 +11,8 @@ One issue that i faced was on the ROR command function, it was not functioning, 
 
 As attached in this git repository is the waveform generated after simulating the ALU_shell.vhd in the ALU_testbench.vhd file, it will be labelled as ALU_testbench_Waveform.jpeg.
 
-Cross-checking with the waveform and the Conditional Statements coding within the ALU_shell.vhd, the values  with the waveform picture protrayed the correct desired result value of the respective assigned functions.
+![itsa waveform!](ALU_testbench_Waveform.jpg)
+
+Cross-checking with the waveform and the Conditional Statements coding within the ALU_shell.vhd, the values within the waveform picture protrayed the correct desired result value of the respective assigned functions.
 
 
