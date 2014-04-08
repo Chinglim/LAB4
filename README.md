@@ -38,3 +38,8 @@ Furthermore, as based on the lesson taught in class, the Accumulator only allow 
 
 ##5)Simulation Analysis
 With the ALU and datapath, they create the basics of the PRISM program. I believe a controller is the device needed to the Datapath program to create the microprocessor in VHDL.
+
+For the waveform ranging from 0-50ns,
+1)from 0-10 ns,Reset_l is set low to initialize everything to zeros.Therefore the first instruction is found in the read-only memory at address 00(hexadecimal).
+
+2)Controller 
