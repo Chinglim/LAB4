@@ -37,4 +37,4 @@ As for Address Selector (multiplexer), as based on the knowledge obtained throug
 Furthermore, as based on the lesson taught in class, the Accumulator only allow the 4 bits ALU output to pass through if the ACCLD is active ,'1'.and only when the ENAccB, which is the input of a tristate buffer, is '1' then can the value of the accumulator be transferred to the data bus.
 
 ##5)Simulation Analysis
-With the ALU and datapath, they create the basics of the PRISM program. I believe a controller is need to the Datapath program to create the microprocessor in VHDL.
+With the ALU and datapath, they create the basics of the PRISM program. I believe a controller is the device needed to the Datapath program to create the microprocessor in VHDL.
