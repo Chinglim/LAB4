@@ -24,9 +24,17 @@ Programme Controller was done by the kindness of Cpt Sliva.
 
 For the Instruction Register(IR), as stated in the comment, its reset low is asychronous. Furthermore with the knowledge from the class, IR is only active when IRLd is '1', thus allow the 4 bits Data Bus input to be output on the IR output.
 
+##4)Datapath Test and Debug
+During the whole process, mainly syntax error like use of wrong " " or ' ' , forgetting to end of certain function properly and semicolons too.
+
+Nonetheless, managed to find those along the way and got it fixed. The first 50ns waveform diagram is similar to the one as requested on the labsheet and the value indeed changes @ 225ns.
+
+
 MARHi and MARLo is somehow similar to the operation of the IR as in that the Data bus inputs will only passes through them when the MARHi/ MARLo Ld is '1', and output via the respective MARHi/MARLo output. 
 
 As for Address Selector (multiplexer), as based on the knowledge obtained through the lessons in class,Address Selector (multiplexer) is not sensitive to clock input. Furthermore, due to its 8 bits output, when the addrsel is '1' , it allows the 2 4 bits MARHi and MARLo values to be passed through. Whereas, when addrsel is '0', it will then select the 8 bits PC value as output.
 
 Furthermore, as based on the lesson taught in class, the Accumulator only allow the 4 bits ALU output to pass through if the ACCLD is active ,'1'.and only when the ENAccB, which is the input of a tristate buffer, is '1' then can the value of the accumulator be transferred to the data bus.
 
+##5)Simulation Analysis
+With the ALU and datapath, they create the basics of the PRISM program. I believe a controller is need to the Datapath program to create the microprocessor in VHDL.
