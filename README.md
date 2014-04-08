@@ -68,10 +68,23 @@ For the waveform ranging from 0-50ns,
 
 
 For the waveform ranging from 50-100ns,
+
 1)The controller retrieves the new data and places it on the data bus.
 
 2)So that then at next cycle it can be upload into the Instruction Register.
 
-3)As 3 is the opcode for ROR,he ROR is carried out and as 4 is the opcode for out, the ROR value of B(hexadecimal): D(hexadecimal) is then displayed on the the accumulator.
+3)As 3 is the opcode for ROR,the ROR is carried out and as 4 is the opcode for out, the ROR value of B(hexadecimal): D(hexadecimal) is then displayed on the the accumulator.
 
 4)However, cannot proceed immediately as now the enaccbuffer is low and thus does not allow value D (hexadecimal)from the accumulator to the data bus.
+
+
+For the waveform ranging from 100-150ns,
+
+1)
+
+2)
+
+3)
+
+4)
+
