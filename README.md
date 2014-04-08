@@ -41,6 +41,7 @@ With the ALU and datapath, they create the basics of the PRISM program. I believ
 
 For the waveform ranging from 0-50ns,
 
+![Simulation waveform 1](0till50ns.jpg)
 
 1)From 0-10 ns,Reset_l is set low to initialize everything to zeros.Therefore the first instruction is found in the read-only memory at address 00(hexadecimal).
 
@@ -48,7 +49,7 @@ For the waveform ranging from 0-50ns,
 
 3)At the next cycle, the data from the data bus is then uploaded into the Instruction Register.
 
-4)As 7 is th opcode for LDAI, the contorller then retrieves the operand from memory(and places it on the data bus)
+4)As 7 is the opcode for LDAI, the contorller then retrieves the operand from memory(and places it on the data bus)
 
 5)So that at the next cycle, it can be loaded into the Accumulator.
 
@@ -57,4 +58,10 @@ For the waveform ranging from 0-50ns,
 
 
 For the waveform ranging from 50-100ns,
+1)The controller retrieves the new data and places it on the data bus.
 
+2)So that then at next cycle it can be upload into the Instruction Register.
+
+3)The ROR is carried out and as 4 is the opcode for out, the ROR value of B(hexadecimal): D(hexadecimal) is then displayed on the the accumulator.
+
+4)However, cannot proceed immediately as now
