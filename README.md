@@ -13,9 +13,9 @@ One issue that i faced was on the ROR command function, it was not functioning, 
 As attached in this git repository is the waveform generated after simulating the ALU_shell.vhd in the ALU_testbench.vhd file, it will be labelled as ALU_testbench_Waveform.jpeg.
 
 Simulated Waveform: 
-![alt text][logo]
 
-[logo]:https://github.com/Chinglim/LAB4/blob/master/ALU_testbench_Waveform.jpeg "ALU_testbench_Waveform"
+![ALU testbench Waveform](ALU_testbench_Waveform.jpg)
+
 
 Cross-checking with the waveform and the Conditional Statements coding within the ALU_shell.vhd, the values within the waveform picture protrayed the correct desired result value of the respective assigned functions.
 
@@ -41,6 +41,20 @@ With the ALU and datapath, they create the basics of the PRISM program. I believ
 
 For the waveform ranging from 0-50ns,
 
-1)from 0-10 ns,Reset_l is set low to initialize everything to zeros.Therefore the first instruction is found in the read-only memory at address 00(hexadecimal).
 
-2)Controller 
+1)From 0-10 ns,Reset_l is set low to initialize everything to zeros.Therefore the first instruction is found in the read-only memory at address 00(hexadecimal).
+
+2)The controller will retrieve the data from 10-26 ns and places it on the data bus
+
+3)At the next cycle, the data from the data bus is then uploaded into the Instruction Register.
+
+4)As 7 is th opcode for LDAI, the contorller then retrieves the operand from memory(and places it on the data bus)
+
+5)So that at the next cycle, it can be loaded into the Accumulator.
+
+6) This meant that the first instruction is a LDAI B(hexadecimal).
+
+
+
+For the waveform ranging from 50-100ns,
+
