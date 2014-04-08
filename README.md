@@ -63,7 +63,7 @@ For the waveform ranging from 0-50ns,
 
 5)So that at the next cycle, it can be loaded into the Accumulator.
 
-6) This meant that the first instruction is a LDAI B(hexadecimal).
+6) This meant that the first instruction is a LDAI 'B'(hexadecimal).
 
 
 
@@ -73,14 +73,15 @@ For the waveform ranging from 50-100ns,
 
 2)So that then at next cycle it can be upload into the Instruction Register.
 
-3)As 3 is the opcode for ROR,the ROR is carried out and as 4 is the opcode for out, the ROR value of B(hexadecimal): D(hexadecimal) is then displayed on the the accumulator.
+3)As 3 is the opcode for ROR,the ROR is carried out and as 4 is the opcode for out, the ROR value of 'B' (hexadecimal): D(hexadecimal) is then displayed on the the accumulator.
 
-4)However, cannot proceed immediately as now the enaccbuffer is low and thus does not allow value D (hexadecimal)from the accumulator to the data bus.
+4)However, cannot proceed immediately as now the enaccbuffer is low and thus does not allow value 'D' (hexadecimal)from the accumulator to the data bus.
 
+5) This meant that the second instruction is is ROR '3', followed by OUT '4' .
 
 For the waveform ranging from 100-150ns,
 
-1)
+1)The value 'D' is sent to the data bus as the enaccbuffer is now active and allow the accumulator to send value to the data bus. The value will then be outputed to port 3.
 
 2)
 
