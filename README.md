@@ -83,9 +83,20 @@ For the waveform ranging from 100-150ns,
 
 1)The value 'D' is sent to the data bus as the enaccbuffer is now active and allow the accumulator to send value to the data bus. The value will then be outputed to port 3.
 
-2)
+2) After output to port 3, the program listing should have a space before next operation as indicated by the '0' in the data bus, which is then being transferred to the IR to be carried out. 
 
-3)
+3)The controller retrieve this data d(hexadecimal)and place it on the data bus, so that at the next cycle , it is then loaded into the Instruction Register. 
 
-4)
+For the waveform ranging from 150-200ns,
+
+1)Since 'd' is the opcode for STA, the IR will carry the store operation.
+
+2)The controller then retrieves the operand address , where the accumulator content is going to be stored into.
+
+3)So that in the next cycle, the accumulator content is then stored into b0, when the enaccbuffer is active.
+
+4)The controller retrieve the data b(hexadecimal) and place it on the data bus, so that in the next cycle, it is then loaded into the Instruction Register.
+
+For the waveform ranging from 200-250ns,
+1)
 
