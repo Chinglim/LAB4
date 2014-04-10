@@ -157,7 +157,35 @@ For the waveform from 450-500ns,
 
 1) '3' (hexadecimal) is the opcode for ROR, it is also within the Instruction Register thus the ROR operation will be carried out and the value in the accumulator can then be changed in the next cycle from 'E' to '7'(hexadecimal).
 
-2)
+2)The controller retrieve this data '4'(hexadecimal)and place it on the data bus, so that at the next cycle , it is then loaded into the Instruction Register. 
+
+3)Since '4'(hexadecimal) is the opcode for output, the controller then retrieve the selected output port number from the memory and place it on the data bus.
+
+4) At the next cycle the accumulator value '7' get output on output port 3 and to the data bus as the enaccbuffer is now active too.
 
 
 
+For the waveform from 500-550 ns,
+
+1)The controller retrieve this data 'd'(hexadecimal)and place it on the data bus, so that at the next cycle , it is then loaded into the Instruction Register. 
+
+2) Since 'd' is the opcode for STA, the controller then retrieve the operand address 'B0' and places it to the data bus.
+
+
+For the waveform from 550-600ns,
+
+1)The controller retrieve this data 'b'(hexadecimal)and place it on the data bus, so that at the next cycle , it is then loaded into the Instruction Register. 
+
+2) Since 'b' (hexadecimal) is the JN fucntion, and the accumulator value is 7 now, it is not negative as it sign bit is not '1', therefore the JN function will not run anymore.
+
+
+For the waveform from 600-650ns,
+
+1)The controller retrieve this data '9'(hexadecimal)and place it on the data bus, so that at the next cycle , it is then loaded into the Instruction Register
+
+2) Since '9' (hexadecimal) is the JMP fucntion, and the controller then retrieve the operand address '0C' and places it to the data bus.
+
+
+For the waveform from 650-700ns,
+
+Since there was no more instructions, there was no more changes on the data bus.
