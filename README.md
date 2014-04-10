@@ -99,10 +99,65 @@ For the waveform ranging from 150-200ns,
 
 3)So that in the next cycle, the accumulator content is then stored into b0, when the enaccbuffer is active.
 
-4)The controller retrieve the data b(hexadecimal) and place it on the data bus, so that in the next cycle, it is then loaded into the Instruction Register.
+4)The controller retrieve the data 'b'(hexadecimal) and place it on the data bus, so that in the next cycle, it is then loaded into the Instruction Register.
 
 
 
 For the waveform ranging from 200-250ns,
-1)
+1)Since B(hexadecimal) is the opcode for JN, which meant jumping to the operand address if accumulator has a negative number.
+2) Since the value of the accumulator is ' D' (hexadecimal) and its first bit is a one, it is negative.Thus jump operation will be carried out.
+
+3)The controller then retrieves the data and place it on the data bus so that at the next cycle, it can then be loaded to the Instruction Register. The data is '3' which is the opcode for ROR.
+
+4) Therefore that will meant that the Jump fuction is being assigned to jump back to the ROR step.
+
+
+
+For the waveform ranging from 250-300ns,
+1) As stated previously, the instruction register will carry out the ROR operation, the new value in the accumulator will be changed from 'D' (hexadecimal) to 'E' (hexadecimal).
+
+2)However, cannot proceed immediately as now the enaccbuffer is low and thus does not allow value 'E' (hexadecimal)from the accumulator to the data bus.
+
+3)The controller retrieve this data '4'(hexadecimal)and place it on the data bus, so that at the next cycle , it can then then loaded into the Instruction Register. 
+
+4)The IR then run the output operation to display 'E' at output 3 instead and as now the enaccbuffer is active, the accumulator value 'E' has been send to the data bus too.
+
+
+
+For the waveform ranging from 300-350 ns,
+
+1)As stated earlier as 4(hexadecimal) is the opcode for OUT , the value 'E' is then output on port 3 and also concurrently as the enaccbuffer is active, the accumulator value 'E' is also send to the data bus.
+
+
+2)The controller retrieve this data d(hexadecimal)and place it on the data bus, so that at the next cycle , it is then loaded into the Instruction Register. 
+
+
+For the waveform from 350-400 ns,
+
+1)In IR, the value 'D' hexadecimal is seen, it is the opcode for STA. It means storing the contents of the accumulator into the operand address.
+
+
+2)The controller then retrieve the operand address where the new value is to be store and places it on the data bus.
+
+3)The value 'E' hexadecimal is then stored in memory location B0 and the data bus when the enaccbuffer is active.
+
+4))The controller retrieve this data b(hexadecimal)and place it on the data bus, so that at the next cycle , it is then loaded into the Instruction Register. 
+
+
+
+For the waveform from 400-450ns,
+
+1) 'B' hexadecimal is the opcode for jmp if the accumulator value is negative. Since 'E' (hexadecimal)first bit is 1 which means that the sign bit is negative, thus the jmp operation will be carried out
+
+2)The controller retrieve this data '3'(hexadecimal)and place it on the data bus, so that at the next cycle , it is then loaded into the Instruction Register.  
+
+
+
+For the waveform from 450-500ns,
+
+1) '3' (hexadecimal) is the opcode for ROR, it is also within the Instruction Register thus the ROR operation will be carried out and the value in the accumulator can then be changed in the next cycle from 'E' to '7'(hexadecimal).
+
+2)
+
+
 
