@@ -22,13 +22,15 @@ Cross-checking with the waveform and the Conditional Statements coding within th
 ##3)Discussion of Datapath Modifications
 Programme Controller was done by the kindness of Cpt Sliva.
 
-For the Instruction Register(IR), as stated in the comment, its reset low is asychronous. Furthermore with the knowledge from the class, IR is only active when IRLd is '1', thus allow the 4 bits Data Bus input to be output on the IR output.
-
-##4)Datapath Test and Debug
-During the whole process, mainly syntax error like use of wrong " " or ' ' , forgetting to end of certain function properly and semicolons too.
-
-Nonetheless, managed to find those along the way and got it fixed. The first 50ns waveform diagram is similar to the one as requested on the labsheet and the value indeed changes @ 225ns.
-
+For the Instruction Register(IR), as stated in the comment, its reset low is asychronous.If the reset is asynchronous, the reset statement have to be run before the clock statement, as shown below.
+ 
+ process(Clock,Reset_L)
+  	begin
+ if(Reset_L= '0') then       (Reset statement)
+			IR<="0000";
+ elsif(Clock'event and Clock ='1')then    (Clock Statement)
+	  
+Furthermore with the knowledge from the class, IR will only be active when IRLd is '1', thus allow the 4 bits Data Bus input to be output on the IR output.
 
 MARHi and MARLo is somehow similar to the operation of the IR as in that the Data bus inputs will only passes through them when the MARHi/ MARLo Ld is '1', and output via the respective MARHi/MARLo output. 
 
@@ -36,11 +38,21 @@ As for Address Selector (multiplexer), as based on the knowledge obtained throug
 
 Furthermore, as based on the lesson taught in class, the Accumulator only allow the 4 bits ALU output to pass through if the ACCLD is active ,'1'.and only when the ENAccB, which is the input of a tristate buffer, is '1' then can the value of the accumulator be transferred to the data bus.
 
+##4)Datapath Test and Debug
+During the whole process, mainly syntax error like use of wrong " " or ' ' , forgetting to end of certain function properly and semicolons too.
+
+Nonetheless, managed to find those along the way and got it fixed. The first 50ns waveform diagram is similar to the one as requested on the labsheet and the value indeed changes @ 225ns.
+
+
+
+
 ##5)Simulation Analysis
 With the ALU and datapath, they create the basics of the PRISM program. I believe a controller is the device needed to the Datapath program to create the microprocessor in VHDL.
 
+
 For the waveform ranging from 0-50ns,
 
+![Simulation waveform 1](0till50ns.jpg)
 
 1)From 0-10 ns,Reset_l is set low to initialize everything to zeros.Therefore the first instruction is found in the read-only memory at address 00(hexadecimal).
 
@@ -48,13 +60,49 @@ For the waveform ranging from 0-50ns,
 
 3)At the next cycle, the data from the data bus is then uploaded into the Instruction Register.
 
-4)As 7 is th opcode for LDAI, the contorller then retrieves the operand from memory(and places it on the data bus)
+4)As 7 is the opcode for LDAI, the contorller then retrieves the operand from memory(and places it on the data bus)
 
 5)So that at the next cycle, it can be loaded into the Accumulator.
 
-6) This meant that the first instruction is a LDAI B(hexadecimal).
+6) This meant that the first instruction is a LDAI 'B'(hexadecimal).
+
 
 
 
 For the waveform ranging from 50-100ns,
+
+1)The controller retrieves the new data and places it on the data bus.
+
+2)So that then at next cycle it can be upload into the Instruction Register.
+
+3)As 3 is the opcode for ROR,the ROR is carried out and as 4 is the opcode for out, the ROR value of 'B' (hexadecimal): D(hexadecimal) is then displayed on the the accumulator.
+
+4)However, cannot proceed immediately as now the enaccbuffer is low and thus does not allow value 'D' (hexadecimal)from the accumulator to the data bus.
+
+5) This meant that the second instruction is is ROR '3', followed by OUT '4' .
+
+
+
+For the waveform ranging from 100-150ns,
+
+1)The value 'D' is sent to the data bus as the enaccbuffer is now active and allow the accumulator to send value to the data bus. The value will then be outputed to port 3.
+
+2) After output to port 3, the program listing should have a space before next operation as indicated by the '0' in the data bus, which is then being transferred to the IR to be carried out. 
+
+3)The controller retrieve this data d(hexadecimal)and place it on the data bus, so that at the next cycle , it is then loaded into the Instruction Register. 
+
+For the waveform ranging from 150-200ns,
+
+1)Since 'd' is the opcode for STA, the IR will carry the store operation.
+
+2)The controller then retrieves the operand address , where the accumulator content is going to be stored into.
+
+3)So that in the next cycle, the accumulator content is then stored into b0, when the enaccbuffer is active.
+
+4)The controller retrieve the data b(hexadecimal) and place it on the data bus, so that in the next cycle, it is then loaded into the Instruction Register.
+
+
+
+For the waveform ranging from 200-250ns,
+1)
 
