@@ -49,6 +49,7 @@ Nonetheless, managed to find those along the way and got it fixed. The first 50n
 ##5)Simulation Analysis
 With the ALU and datapath, they create the basics of the PRISM program. I believe a controller is the device needed to the Datapath program to create the microprocessor in VHDL.
 
+
 For the waveform ranging from 0-50ns,
 
 ![Simulation waveform 1](0till50ns.jpg)
@@ -67,6 +68,7 @@ For the waveform ranging from 0-50ns,
 
 
 
+
 For the waveform ranging from 50-100ns,
 
 1)The controller retrieves the new data and places it on the data bus.
@@ -78,6 +80,8 @@ For the waveform ranging from 50-100ns,
 4)However, cannot proceed immediately as now the enaccbuffer is low and thus does not allow value 'D' (hexadecimal)from the accumulator to the data bus.
 
 5) This meant that the second instruction is is ROR '3', followed by OUT '4' .
+
+
 
 For the waveform ranging from 100-150ns,
 
@@ -96,6 +100,8 @@ For the waveform ranging from 150-200ns,
 3)So that in the next cycle, the accumulator content is then stored into b0, when the enaccbuffer is active.
 
 4)The controller retrieve the data b(hexadecimal) and place it on the data bus, so that in the next cycle, it is then loaded into the Instruction Register.
+
+
 
 For the waveform ranging from 200-250ns,
 1)
